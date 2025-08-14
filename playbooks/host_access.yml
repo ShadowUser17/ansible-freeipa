@@ -6,4 +6,77 @@
     - "../ipa_vars.yml"
   collections:
     - "freeipa.ansible_freeipa"
-  tasks: []
+  tasks:
+    - name: "Add sudo-i commands"
+      ipasudocmd:
+        name:
+          - '/bin/bash'
+          - '/usr/bin/bash'
+          - '/usr/bin/sudo -i'
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+#
+# allow_admin_access
+#
+    - name: "Create allow_admin_access HBAC rule"
+      ipahbacrule:
+        name: "allow_admin_access"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
+    - name: "Update members for allow_admin_access HBAC rule"
+      ipahbacrule:
+        name: "allow_admin_access"
+        action: "member"
+        hbacsvc:
+          - "sshd"
+          - "sudo-i"
+        group:
+          - "admins"
+        hostgroup:
+          - "ipaservers"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
+    - name: "Create allow_admin_access SUDO rule"
+      ipasudorule:
+        name: "allow_admin_access"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
+    - name: "Configura allow_admin_access SUDO rule"
+      ipasudorule:
+        name: "allow_admin_access"
+        action: "member"
+        options:
+          - "!authenticate"
+        runasuser:
+          - "root"
+        runasgroup:
+          - "root"
+        allow_sudocmd:
+          - '/bin/bash'
+          - '/usr/bin/bash'
+          - '/usr/bin/sudo -i'
+        group:
+          - "admins"
+        hostgroup:
+          - "ipaservers"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+#
+# Disable default HBAC rules
+#
+    - name: "Disable allow_all HBAC rule"
+      ipahbacrule:
+        name: "allow_all"
+        state: "disabled"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
+    - name: "Disable allow_systemd-user HBAC rule"
+      ipahbacrule:
+        name: "allow_systemd-user"
+        state: "disabled"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
