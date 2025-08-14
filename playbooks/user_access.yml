@@ -68,3 +68,14 @@
             last: "User"
             shell: "/bin/bash"
             sshpubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDMaLT+83kCAIW5aAdUG5xvDYJ/ulf19Pn3saf55/P1eq9z6o+oAc4i3a+vt5BwiPwuJJ0iBEV7xPb1rwdhqAiw4HkdoMpu5asCXrt4WxYRjN4+GvcHbzyMZuXzDTrTPhhlB/R/QnCSegr+aYyVkxNBhx5DG2Nvvgz04ePp6FgPQQ=="
+#
+# allow_base_ssh_access
+#
+    - name: "Update members for allow_base_ssh_access HBAC rule"
+      ipahbacrule:
+        name: "allow_base_ssh_access"
+        action: "member"
+        user:
+          - "testing"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"

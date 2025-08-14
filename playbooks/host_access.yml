@@ -76,6 +76,25 @@
         ipaadmin_principal: "{{ ipaadmin_principal }}"
         ipaadmin_password: "{{ ipaadmin_password }}"
 #
+# HBAC/SUDO: allow_base_ssh_access
+#
+    - name: "Create allow_base_ssh_access HBAC rule"
+      ipahbacrule:
+        name: "allow_base_ssh_access"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
+    - name: "Update members for allow_base_ssh_access HBAC rule"
+      ipahbacrule:
+        name: "allow_base_ssh_access"
+        action: "member"
+        hbacsvc:
+          - "sshd"
+        hostgroup:
+          - "ipaclients"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+#
 # Disable default HBAC rules
 #
     - name: "Disable allow_all HBAC rule"
