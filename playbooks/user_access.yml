@@ -6,4 +6,15 @@
     - "../ipa_vars.yml"
   collections:
     - "freeipa.ansible_freeipa"
-  tasks: []
+  tasks:
+    - name: "Create group svc_psql_rw"
+      ipagroup:
+        name: "svc_psql_rw"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
+    - name: "Create group svc_psql_ro"
+      ipagroup:
+        name: "svc_psql_ro"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
