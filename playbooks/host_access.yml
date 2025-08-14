@@ -16,7 +16,16 @@
         ipaadmin_principal: "{{ ipaadmin_principal }}"
         ipaadmin_password: "{{ ipaadmin_password }}"
 #
-# allow_admin_access
+# Host Group: ipaclients
+#
+    - name: "Create host group: ipaclients"
+      ipahostgroup:
+        name: "ipaclients"
+        description: "IPA client hosts"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+#
+# HBAC/SUDO: allow_admin_access
 #
     - name: "Create allow_admin_access HBAC rule"
       ipahbacrule:
@@ -35,6 +44,7 @@
           - "admins"
         hostgroup:
           - "ipaservers"
+          - "ipaclients"
         ipaadmin_principal: "{{ ipaadmin_principal }}"
         ipaadmin_password: "{{ ipaadmin_password }}"
 
@@ -62,6 +72,7 @@
           - "admins"
         hostgroup:
           - "ipaservers"
+          - "ipaclients"
         ipaadmin_principal: "{{ ipaadmin_principal }}"
         ipaadmin_password: "{{ ipaadmin_password }}"
 #
