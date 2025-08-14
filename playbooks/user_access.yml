@@ -43,23 +43,28 @@
             first: "Test"
             last: "User"
             shell: "/bin/bash"
+            password: "1qaz!QAZ"
 
           - name: "test_user_01"
             first: "Test"
             last: "User"
             shell: "/bin/bash"
+            sshpubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDbXfULlq2zhsCLHdeXYU9b5w93az6N7dJiMfh6wDIWmhmk0smOfBVuyOWE32/MdAnL3eIk7sZNCQsRMsxEtV1S3ikJvvcRPqsJNpBMzYQm7qxO8CAXBr+tEvUB0dezaJ8yZa7rga1BC7FtFb9mlr1xLy/mIj1hlpexHjhz122LGw=="
 
           - name: "test_user_02"
             first: "Test"
             last: "User"
             shell: "/bin/bash"
+            sshpubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDExm8x8eesSzRXATfaYVqev22CxOeAPUddNpx2rrA+5QHhviNIKkFnq4ptG3Hz3gwUtvkM87pCc61GUKK83hEze38i3wVlYTpfGGeoO+oteGg1ZU6dGk1RMmIl8KJ9LEWQ22nRBLt+ieP7UPBG03I8NpCYJTovBRCP2LOEBUYz5w=="
 
           - name: "test_user_03"
             first: "Test"
             last: "User"
             shell: "/bin/bash"
+            sshpubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC7HfuF2wW9fW+Gtni8DCvdXbGyikMByZo114S29rjG7X84Bs8wEwJli9ZMoJaxsJjEPoDmplI9bqOYSJyQ5BsviLLTxpksrhzX4B6UgtmXzCpAdbVy8GEs5zNugo9QU6jq4ceKeSjQkasmLnTSfiC8pwJ54/Vd6MWN06KCH5V4Mw=="
 
           - name: "test_user_04"
             first: "Test"
             last: "User"
             shell: "/bin/bash"
+            sshpubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDMaLT+83kCAIW5aAdUG5xvDYJ/ulf19Pn3saf55/P1eq9z6o+oAc4i3a+vt5BwiPwuJJ0iBEV7xPb1rwdhqAiw4HkdoMpu5asCXrt4WxYRjN4+GvcHbzyMZuXzDTrTPhhlB/R/QnCSegr+aYyVkxNBhx5DG2Nvvgz04ePp6FgPQQ=="
