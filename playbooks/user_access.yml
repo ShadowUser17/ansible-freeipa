@@ -1,0 +1,9 @@
+---
+- name: "Manage User/Group permissions"
+  gather_facts: false
+  hosts: "ipa_servers"
+  vars_files:
+    - "../ipa_vars.yml"
+  collections:
+    - "freeipa.ansible_freeipa"
+  tasks: []
