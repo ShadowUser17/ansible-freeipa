@@ -45,6 +45,12 @@
             shell: "/bin/bash"
             password: "1qaz!QAZ"
 
+          - name: "postgres"
+            first: "PostgreSQL"
+            last: "User"
+            shell: "/bin/bash"
+            password: "1qaz!QAZ"
+
           - name: "test_user_01"
             first: "Test"
             last: "User"
