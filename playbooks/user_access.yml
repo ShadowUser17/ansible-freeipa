@@ -7,6 +7,18 @@
   collections:
     - "freeipa.ansible_freeipa"
   tasks:
+    - name: "Create group grp_soc_team"
+      ipagroup:
+        name: "grp_soc_team"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
+    - name: "Create group grp_dev_team"
+      ipagroup:
+        name: "grp_dev_team"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+
     - name: "Create group svc_psql_rw"
       ipagroup:
         name: "svc_psql_rw"
