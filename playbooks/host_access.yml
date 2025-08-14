@@ -7,6 +7,9 @@
   collections:
     - "freeipa.ansible_freeipa"
   tasks:
+#
+# SUDO commands
+#
     - name: "Add sudo-i commands"
       ipasudocmd:
         name:
@@ -22,6 +25,15 @@
       ipahostgroup:
         name: "ipaclients"
         description: "IPA client hosts"
+        ipaadmin_principal: "{{ ipaadmin_principal }}"
+        ipaadmin_password: "{{ ipaadmin_password }}"
+#
+# Host Group: postgres_dbs
+#
+    - name: "Create host group: postgres_dbs"
+      ipahostgroup:
+        name: "postgres_dbs"
+        description: "PostgreSQL database hosts"
         ipaadmin_principal: "{{ ipaadmin_principal }}"
         ipaadmin_password: "{{ ipaadmin_password }}"
 #
