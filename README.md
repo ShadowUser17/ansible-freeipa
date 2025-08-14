@@ -27,3 +27,13 @@ ipa user-mod ansible --setattr='krbPasswordExpiration='
 ```bash
 ipa group-add-member admins --users='ansible'
 ```
+
+#### Run Playbook:
+```bash
+./env/bin/ansible-playbook -i <inventory> -t <tags> -e <extra-vars> -l <hosts-limit> <playbook>
+```
+
+#### Test Playbook:
+```bash
+./env/bin/ansible-playbook -i <inventory> -C <playbook>
+```
